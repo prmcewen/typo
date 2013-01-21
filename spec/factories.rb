@@ -166,8 +166,7 @@ http://alsoping.example.com/rpc/ping"
     comment_text_filter "markdown" #FactoryGirl.create(:markdown).name
     permalink_format "/%year%/%month%/%day%/%title%"
     use_canonical_url true
-    lang "en_US"
-    
+
     after :stub do |blog|
       Blog.stub(:default) { blog }
       [blog.text_filter, blog.comment_text_filter].uniq.each do |filter|

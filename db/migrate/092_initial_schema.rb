@@ -141,6 +141,24 @@ class InitialSchema < ActiveRecord::Migration
       t.string "description"
     end
 
+    create_table "shows", force: true do |t|
+      t.datetime "start"
+      t.datetime "endtime"
+      t.string   "address"
+      t.string   "town"
+      t.string   "state"
+      t.string   "zip"
+      t.string   "venue"
+      t.string   "venue_url"
+      t.string   "event"
+      t.string   "ticket"
+      t.string   "ticket_url"
+      t.string   "cobill1"
+      t.string   "cobill2"
+      t.string   "cobill3"
+      t.string   "permalink"
+    end
+
     create_table "sidebars", force: true do |t|
       t.integer "active_position"
       t.text    "config"

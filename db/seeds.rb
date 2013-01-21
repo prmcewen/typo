@@ -29,9 +29,9 @@ TextFilter.create(name: 'textile', description: 'Textile',
                   markup: 'textile', filters: [], params: {})
 
 admin = Profile.create(label: 'admin', nicename: 'Typo administrator',
-                       modules: [:dashboard, :articles, :pages, :media, :feedback, :themes, :sidebar, :users, :settings, :profile, :seo])
+                       modules: [:dashboard, :articles, :pages, :shows, :media, :feedback, :themes, :sidebar, :users, :settings, :profile, :seo])
 publisher = Profile.create(label: 'publisher', nicename: 'Blog publisher',
-                           modules: [:dashboard, :articles, :media, :pages, :feedback, :profile])
+                           modules: [:dashboard, :articles, :media, :pages, :shows, :feedback, :profile, :shows])
 contributor = Profile.create(label: 'contributor', nicename: 'Contributor',
                              modules: [:dashboard, :profile ])
 

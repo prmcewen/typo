@@ -25,6 +25,7 @@ source :rubygems
 gem 'rails', '~> 3.2.11'
 gem 'require_relative'
 gem 'htmlentities'
+gem 'json'
 gem 'bluecloth', '~> 2.1'
 gem 'coderay', '~> 0.9'
 gem 'kaminari'
@@ -39,6 +40,8 @@ gem 'acts_as_list'
 gem 'acts_as_tree_rails3'
 gem 'fog'
 gem 'recaptcha', :require => 'recaptcha/rails', :branch => 'rails3'
+gem 'omniauth-facebook'
+gem 'koala'
 
 # TODO: Replace with jquery
 gem 'prototype-rails', '~> 3.2.1'

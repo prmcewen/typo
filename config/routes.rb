@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :shows
+
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
+  
   # Load plugin routes first. A little bit ugly, but I didn't find any better way to do it
   # We consider that only typo_* plugins are concerned
   Dir.glob(File.join("vendor", "plugins", "typo_*")).each do |dir|
@@ -107,7 +113,7 @@ Rails.application.routes.draw do
   end
 
   # Admin/XController
-  %w{advanced cache categories comments content profiles general pages feedback
+  %w{advanced cache categories comments content profiles general pages shows feedback
      resources sidebar textfilters themes trackbacks users settings tags redirects seo post_types }.each do |i|
     match "/admin/#{i}", :to => "admin/#{i}#index", :format => false
     match "/admin/#{i}(/:action(/:id))", :to => "admin/#{i}", :action => nil, :id => nil, :format => false
@@ -117,4 +123,5 @@ Rails.application.routes.draw do
   root :to  => 'articles#index', :format => false
 
   match '*from', :to => 'articles#redirect', :format => false
+  
 end

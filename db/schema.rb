@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 105) do
+ActiveRecord::Schema.define(:version => 20130119035051) do
 
   create_table "articles_tags", :id => false, :force => true do |t|
     t.integer "article_id"
@@ -155,9 +155,22 @@ ActiveRecord::Schema.define(:version => 105) do
     t.boolean  "itunes_explicit"
   end
 
-  create_table "rights", :force => true do |t|
-    t.string "name"
-    t.string "description"
+  create_table "shows", :force => true do |t|
+    t.datetime "start"
+    t.date     "endtime"
+    t.string   "address"
+    t.string   "town"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "venue"
+    t.string   "venue_url"
+    t.string   "event"
+    t.string   "ticket"
+    t.string   "ticket_url"
+    t.string   "cobill1"
+    t.string   "cobill2"
+    t.string   "cobill3"
+    t.string   "permalink"
   end
 
   create_table "sidebars", :force => true do |t|
@@ -175,6 +188,14 @@ ActiveRecord::Schema.define(:version => 105) do
     t.string   "user_agent"
     t.datetime "created_at"
     t.date     "created_on"
+  end
+
+  create_table "socials", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "token"
+    t.datetime "expires_at"
   end
 
   create_table "tags", :force => true do |t|
