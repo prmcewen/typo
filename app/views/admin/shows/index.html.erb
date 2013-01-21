@@ -1,0 +1,15 @@
+<% @page_heading = _('Manage shows') + content_tag(:div, link_to(_("New Show"), {:controller => 'shows', :action => 'new'}, :id => 'dialog-link', :class => 'btn btn-info'), :class => 'pull-right') %>
+
+<table class='table table-striped'>
+<thead>
+  <tr class='noborder'>
+    <th><%= _("Show") %></th>
+    <th><%= _("Town")%></th>
+    <th><%= _("Date") %></th>
+    <th>Promote</th>
+  </tr>
+</thead>
+  <%= render 'shows' %>
+</table>
+
+<a href="http://127.0.0.1/auth/facebook">Authorize Facebook</a>

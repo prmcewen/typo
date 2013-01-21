@@ -1,0 +1,51 @@
+<h1>Listing shows</h1>
+
+<table>
+  <tr>
+    <th>Start</th>
+    <th>Endtime</th>
+    <th>Address</th>
+    <th>Town</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Venue</th>
+    <th>Venue url</th>
+    <th>Event</th>
+    <th>Ticket</th>
+    <th>Ticket url</th>
+    <th>Cobill1</th>
+    <th>Cobill2</th>
+    <th>Cobill3</th>
+    <th>Permalink</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shows.each do |show| %>
+  <tr>
+    <td><%= show.start %></td>
+    <td><%= show.endtime %></td>
+    <td><%= show.address %></td>
+    <td><%= show.town %></td>
+    <td><%= show.state %></td>
+    <td><%= show.zip %></td>
+    <td><%= show.venue %></td>
+    <td><%= show.venue_url %></td>
+    <td><%= show.event %></td>
+    <td><%= show.ticket %></td>
+    <td><%= show.ticket_url %></td>
+    <td><%= show.cobill1 %></td>
+    <td><%= show.cobill2 %></td>
+    <td><%= show.cobill3 %></td>
+    <td><%= show.permalink %></td>
+    <td><%= link_to 'Show', show %></td>
+    <td><%= link_to 'Edit', edit_show_path(show) %></td>
+    <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Show', new_show_path %>

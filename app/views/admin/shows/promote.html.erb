@@ -1,0 +1,23 @@
+<% @page_heading = _('Promote show') + content_tag(:div, link_to(_("Back to Shows"), {:controller => 'shows', :action => 'index'}, :id => 'dialog-link', :class => 'btn btn-info'), :class => 'pull-right') %>
+
+<table class='table table-striped'>
+<thead>
+  <tr class='noborder'>
+    <th><%= _("Show") %></th>
+    <th><%= _("Location")%></th>
+    <th><%= _("Playing with")%></th>
+    <th><%= _("Date") %></th>
+  </tr>
+</thead>
+  <tr <%= alternate_class %>>
+    <td><%= @show.venue %><br/>
+    <%= @show.event %></td>
+    <td><%= @show.address %><br/><%= @show.town %>, <%= @show.state %> <%= @show.zip %></td>
+    <td><%= @show.cobill1 %><br/><%= @show.cobill2 %><br/><%= @show.cobill3 %></td>
+    <td><%= format_date_time @show.start %><br/><%= format_date_time @show.endtime %></td>
+  </tr>
+</table>
+
+<%= content_tag(:div, link_to(_("Create FB Event"), {:controller => 'shows', :action => 'create_fb_event', :id => @show.id} ), :class => "btn" ) %>
+
+

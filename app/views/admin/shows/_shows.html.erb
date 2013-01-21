@@ -1,0 +1,11 @@
+<%= render_void_table(@shows.size, 5)  %>
+
+<% for show in @shows %>
+<tr <%= alternate_class %>>
+  <td><%= show.venue %> <%= show.event %></td>
+  <td><%= show.town %></td>
+  <td><%= format_date show.start %></td>
+  <td><%= link_to('Promote', {controller => 'shows', :action => 'promote', :id => show.id }, :class => 'btn') %>
+</tr>
+<% end %>
+<%= display_pagination(@shows, 5)%>
