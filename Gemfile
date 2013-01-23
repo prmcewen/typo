@@ -42,6 +42,7 @@ gem 'fog'
 gem 'recaptcha', :require => 'recaptcha/rails', :branch => 'rails3'
 gem 'omniauth-facebook'
 gem 'koala'
+gem 'omniauth-twitter'
 
 # TODO: Replace with jquery
 gem 'prototype-rails', '~> 3.2.1'

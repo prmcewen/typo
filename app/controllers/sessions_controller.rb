@@ -1,13 +1,16 @@
 class SessionsController < ApplicationController
 
 def create
-  auth = request.env["omniauth.auth"]
+  auth = request.env["omniauth.auth"].except("extra")
   @social = Social.find_by_provider_and_uid(auth["provider"], auth["uid"]) || Social.create_with_omniauth(auth)
   @social.token = auth["credentials"]["token"]
   if auth["credentials"].has_key?("expires_at")
-    require 'date'
-    tokendate = auth["credentials"]["expires_at"].to_s
-    @social.expires_at = DateTime.strptime(tokendate,'%s')
+      require 'date'
+      tokendate = auth["credentials"]["expires_at"].to_s
+      @social.expires_at = DateTime.strptime(tokendate,'%s')
+  end
+  if auth["credentials"].has_key?("secret")
+      @social.secret = auth["credentials"]["secret"]
   end
   @social.save
   session[:social_id] = @social.id
